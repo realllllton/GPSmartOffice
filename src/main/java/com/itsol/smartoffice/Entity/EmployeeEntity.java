@@ -18,16 +18,23 @@ public class EmployeeEntity {
     @Id
     private String id_employee;
     private String full_name;
+    private String images;
     private String email;
     private int phone;
+    private String nick_skype;
+    private String facebook_link;
+    private String object;
+    private String home_town;
+    private String education;
+    private String school;
+    private String science;
     private String status;
     private Date created;
+    private Date graduation_year;
     private Date last_access;
     private boolean activated;
     private String id_department;
     private String id_team;
-    @OneToMany(mappedBy = "employeeEntity", fetch = FetchType.LAZY)
-    private List<UsersEntity> usersEntities;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_department", insertable = false, updatable = false)
     private DepartmentEntity departmentEntity;
