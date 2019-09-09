@@ -1,7 +1,7 @@
 package com.itsol.smartoffice.Controllers;
 
-import com.itsol.smartoffice.Services.Department.DepartmentService;
-import com.itsol.smartoffice.dto.DepartmentDto;
+import com.itsol.smartoffice.Services.Permission.PermissionService;
+import com.itsol.smartoffice.dto.PermissionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +13,17 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(DepartmentController.BASE_URL)
-public class DepartmentController {
+@RequestMapping(PermissionController.BASE_URL)
+public class PermissionController {
+
     public static final String BASE_URL = "/apis";
 
     @Autowired
-    private DepartmentService departmentService;
+    private PermissionService permissionService;
 
-    @RequestMapping("/department")
-    public ResponseEntity<List<DepartmentDto>> getdepartall(){
-        List<DepartmentDto> departmentDtos = departmentService.getdepartall();
-        return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
+    @RequestMapping("/permission")
+    public ResponseEntity<List<PermissionDto>> getlistpermission() {
+        List<PermissionDto> permissionDtos = permissionService.getlistpermission();
+        return new ResponseEntity<>(permissionDtos, HttpStatus.OK);
     }
 }

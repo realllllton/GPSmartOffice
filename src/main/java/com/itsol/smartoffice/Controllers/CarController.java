@@ -1,7 +1,8 @@
 package com.itsol.smartoffice.Controllers;
 
-import com.itsol.smartoffice.Servicess.Car.CarService;
+import com.itsol.smartoffice.Services.Car.CarService;
 import com.itsol.smartoffice.dto.CarDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,15 +11,10 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(CarController.BASE_URL)
+@RequestMapping("/apis")
 public class CarController {
-    public static final String BASE_URL = "/apis";
-
-    private final CarService carService;
-
-    public CarController(CarService carService) {
-        this.carService = carService;
-    }
+    @Autowired
+    private CarService carService;
 
     @RequestMapping("/car")
     public ResponseEntity<List<CarDto>> getcarall() {

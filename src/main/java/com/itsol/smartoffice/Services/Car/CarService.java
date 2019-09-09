@@ -1,4 +1,4 @@
-package com.itsol.smartoffice.Servicess.Car;
+package com.itsol.smartoffice.Services.Car;
 
 import com.itsol.smartoffice.dto.CarDto;
 import org.springframework.stereotype.Service;

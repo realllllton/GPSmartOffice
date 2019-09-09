@@ -20,12 +20,12 @@ public class UsersEntity {
     private String pass_word;
     private String images;
     private String email;
+    private boolean block;
     private boolean activated;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
     private List<IssuseEntity> issuseEntities;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
     private List<TimesheetEntity> timesheetEntities;
-    @ManyToOne(fetch = FetchType.LAZY)
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
     private List<Users_roleEntity> users_roleEntities;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
