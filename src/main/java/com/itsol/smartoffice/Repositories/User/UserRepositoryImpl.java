@@ -52,10 +52,13 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
     }
 
     @Override
+    @Transactional
     public boolean edituser(UsersDto usersDto) {
         try {
             EntityManager entityManager = getEntityManager();
-            UsersEntity usersEntity = new UsersEntity();
+            UsersEntity usersEntity = entityManager.find(UsersEntity.class, usersDto.getUser_name());
+            usersEntity.setFirst_name(usersDto.getFirst_name());
+            usersEntity.setLast_name(usersDto.getLast_name());
             usersEntity.setEmail(usersDto.getEmail());
             usersEntity.setImages(usersDto.getImages());
             usersEntity.setBlock(usersDto.isBlock());

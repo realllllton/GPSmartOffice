@@ -11,7 +11,8 @@ public class UsersDto extends BaseDto {
 
     private String user_name;
     private String pass_word;
-    private String full_name;
+    private String first_name;
+    private String last_name;
     private String images;
     private String email;
     private boolean block;

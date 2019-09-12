@@ -31,13 +31,13 @@ public class UsersController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/users/getinfouser")
-    public UsersDto getinfouser(@RequestBody String user_name) {
+    @RequestMapping("/users/{user_name}")
+    public UsersDto getinfouser(@PathVariable String user_name) {
         return userService.getinfouser(user_name);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/users/edit")
+    @PostMapping("/users/update")
     public boolean edituser(@RequestBody UsersDto usersDto) {
         boolean result = userService.edituser(usersDto);
         return result;
