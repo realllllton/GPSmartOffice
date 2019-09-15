@@ -12,10 +12,12 @@ import java.util.List;
 @Setter
 @ToString
 public class UsersDto {
-
     private String user_name;
     private String pass_word;
+    private String first_name;
+    private String last_name;
     private String images;
     private String email;
     private boolean activated;
+    private String tokenactive;
 }

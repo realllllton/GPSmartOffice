@@ -12,13 +12,13 @@ public class DataUtil {
     }
 
 
-//    public static String removeWildcardCharacters(String srcString) {
-//        if (isNotNullAndEmptyString(srcString)) {
-//            return "%" + srcString
-//                    .trim()
-//                    .replaceAll("%", "\\%")
-//                    .replaceAll("_", "\\_") + "%";
-//        }
-//        return null;
-//    }
+    public static String removeWildcardCharacters(String srcString) {
+        if (isNotNullAndEmptyString(srcString)) {
+            return "%" + srcString
+                    .trim()
+                    .replaceAll("%", "\\%")
+                    .replaceAll("_", "\\_") + "%";
+        }
+        return null;
+    }
 }
