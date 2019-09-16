@@ -3,12 +3,9 @@ package com.itsol.smartoffice.Controllers;
 import com.itsol.smartoffice.Services.User.UserService;
 import com.itsol.smartoffice.dto.UsersDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 /**
@@ -34,6 +31,12 @@ public class UsersController {
     @RequestMapping("/users/{user_name}")
     public UsersDto getinfouser(@PathVariable String user_name) {
         return userService.getinfouser(user_name);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/users/usershowinfo")
+    public UsersDto getinfobyusername(@RequestBody UsersDto usersDto) {
+        return userService.getinfobyusername(usersDto);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

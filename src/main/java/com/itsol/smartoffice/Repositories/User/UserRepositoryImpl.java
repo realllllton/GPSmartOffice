@@ -41,7 +41,24 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
             Map<String, String> parameters = new HashMap<>();
             StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_USERS, "get_info_user"));
             if (DataUtil.isNotNullAndEmptyString(user_name)) {
-                builder.append(" and users_role.user_name = :p_username ");
+                builder.append(" and users_role.user_name = :p_username group by users.user_name ");
+                parameters.put("p_username", user_name);
+            }
+            usersDto = getNamedParameterJdbcTemplate().queryForObject(builder.toString(), parameters, new BeanPropertyRowMapper<>(UsersDto.class));
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        return usersDto;
+    }
+
+    @Override
+    public UsersDto getinfobyusername(String user_name) {
+        UsersDto usersDto = null;
+        try {
+            Map<String, String> parameters = new HashMap<>();
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_USERS, "get_info_user_username"));
+            if (DataUtil.isNotNullAndEmptyString(user_name)) {
+                builder.append(" and user_name = :p_username group by user_name ");
                 parameters.put("p_username", user_name);
             }
             usersDto = getNamedParameterJdbcTemplate().queryForObject(builder.toString(), parameters, new BeanPropertyRowMapper<>(UsersDto.class));

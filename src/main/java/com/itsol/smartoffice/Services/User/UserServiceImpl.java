@@ -32,6 +32,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UsersDto getinfobyusername(UsersDto usersDto) {
+        logger.info("get info user by user_name");
+        return userRepository.getinfobyusername(usersDto.getUser_name());
+    }
+
+    @Override
     public boolean edituser(UsersDto usersDto) {
         logger.info("edit user");
         return userRepository.edituser(usersDto);

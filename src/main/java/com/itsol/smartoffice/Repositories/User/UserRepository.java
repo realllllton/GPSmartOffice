@@ -9,6 +9,8 @@ public interface UserRepository {
 
     UsersDto getinfouser(String user_name);
 
+    UsersDto getinfobyusername(String user_name);
+
     boolean edituser(UsersDto usersDto);
 
     boolean deleteuser(String user_name);

@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "issuse")
+@Table(name = "issuses")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -19,7 +19,7 @@ public class IssuseEntity implements Serializable {
     @Id
     private String id_issuse;
     private String user_name;
-    private String content;
+    private String content_issuse;
     private Date date_issuse;
     @OneToMany(mappedBy = "issuseEntity", fetch = FetchType.LAZY)
     private List<Comment_issuseEntity> comment_issuseEntities;

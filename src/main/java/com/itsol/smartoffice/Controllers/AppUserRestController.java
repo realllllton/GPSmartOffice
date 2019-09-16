@@ -32,11 +32,11 @@ public class AppUserRestController {
 	 * 
 	 * @return list of all AppUser
 	 */
-	@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/userss", method = RequestMethod.GET)
-	public List<UsersDto> users() {
-		return userService.getlistuser();
-	}
+//	@PreAuthorize("hasAuthority('ADMIN')")
+//	@RequestMapping(value = "/userss", method = RequestMethod.GET)
+//	public List<UsersDto> users() {
+//		return userService.getlistuser();
+//	}
 
 	/**
 	 * Web service for getting a user by his ID
