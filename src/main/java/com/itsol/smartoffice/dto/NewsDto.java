@@ -1,5 +1,6 @@
 package com.itsol.smartoffice.dto;
 
+import javafx.util.converter.DateStringConverter;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,5 +18,6 @@ public class NewsDto {
     private String title;
     private Date date;
     private String brief;
+    private String detail;
     private String user_name;
 }

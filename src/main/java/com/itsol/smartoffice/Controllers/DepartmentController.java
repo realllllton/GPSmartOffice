@@ -1,8 +1,7 @@
 package com.itsol.smartoffice.Controllers;
 
-import com.itsol.smartoffice.Services.Department.DepartmentService;
+import com.itsol.smartoffice.Servicess.Department.DepartmentService;
 import com.itsol.smartoffice.dto.DepartmentDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,8 +16,11 @@ import java.util.List;
 public class DepartmentController {
     public static final String BASE_URL = "/apis";
 
-    @Autowired
-    private DepartmentService departmentService;
+    private final DepartmentService departmentService;
+
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
     @RequestMapping("/department")
     public ResponseEntity<List<DepartmentDto>> getdepartall(){

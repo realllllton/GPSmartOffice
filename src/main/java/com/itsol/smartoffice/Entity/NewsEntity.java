@@ -20,8 +20,10 @@ public class NewsEntity {
     private String title;
     private Date date;
     private String brief;
+    private String detail;
     private String user_name;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_name", insertable = false, updatable = false)
     private UsersEntity usersEntity;
+
 }
