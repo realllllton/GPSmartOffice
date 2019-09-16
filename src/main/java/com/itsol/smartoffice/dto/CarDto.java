@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class CarDto {
-
     private String numberplate;
     private String namecar;
     private int yearofmanufacture;

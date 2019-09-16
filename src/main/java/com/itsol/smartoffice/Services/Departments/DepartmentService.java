@@ -1,4 +1,4 @@
-package com.itsol.smartoffice.Servicess.Department;
+package com.itsol.smartoffice.Services.Departments;
 
 import com.itsol.smartoffice.dto.DepartmentDto;
 

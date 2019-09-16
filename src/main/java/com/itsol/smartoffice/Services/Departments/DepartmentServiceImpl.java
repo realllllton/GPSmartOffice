@@ -1,6 +1,6 @@
-package com.itsol.smartoffice.Servicess.Department;
+package com.itsol.smartoffice.Services.Departments;
 
-import com.itsol.smartoffice.Repositories.Department.DepartmentRepository;
+import com.itsol.smartoffice.Repositories.Departments.DepartmentRepository;
 import com.itsol.smartoffice.dto.DepartmentDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<DepartmentDto> getdepartall() {
-        logger.info("get list all department");
+        logger.info("get list all departments");
         return departmentRepository.getdepartall();
     }
 }

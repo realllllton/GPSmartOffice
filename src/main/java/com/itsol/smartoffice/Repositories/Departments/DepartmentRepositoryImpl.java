@@ -1,4 +1,4 @@
-package com.itsol.smartoffice.Repositories.Department;
+package com.itsol.smartoffice.Repositories.Departments;
 
 import com.itsol.smartoffice.Repositories.BaseRepository;
 import com.itsol.smartoffice.Utils.SQLBuilder;
