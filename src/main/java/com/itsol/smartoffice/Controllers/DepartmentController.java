@@ -2,6 +2,7 @@ package com.itsol.smartoffice.Controllers;
 
 import com.itsol.smartoffice.Servicess.Department.DepartmentService;
 import com.itsol.smartoffice.dto.DepartmentDto;
+import com.itsol.smartoffice.dto.EmployeeDto;
 import com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException;
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -109,5 +110,9 @@ public class DepartmentController {
         return folderUpload;
     }
 
-
+    @PostMapping("/listCountEmployeInDepartment")
+    public ResponseEntity<List<DepartmentDto>> GetListCountEmployeeInDepartment(@RequestBody String id_department) {
+        List<DepartmentDto> departmentDto = departmentService.GetListCountEmployeeInDepartment(id_department);
+        return new ResponseEntity<>(departmentDto, HttpStatus.OK);
+    }
 }

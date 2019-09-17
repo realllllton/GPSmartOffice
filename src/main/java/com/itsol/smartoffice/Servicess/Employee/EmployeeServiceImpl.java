@@ -52,8 +52,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<EmployeeDto> getListEmployeeInDepartment(String id){
-        logger.info("get list Employee in Deprtment");
+        logger.info("get list Employee in Depratment");
         return employeeRepository.getListEmployeeInDepartment(id);
     }
+
+    @Override
+    public List<EmployeeDto> getListEmployeeNotInDepartment() {
+        logger.info("get list employee not in department");
+        return employeeRepository.getListEmployeeNotInDepartment();
+    }
+
 
 }

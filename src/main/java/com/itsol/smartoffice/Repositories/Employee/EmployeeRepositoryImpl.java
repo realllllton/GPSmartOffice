@@ -37,6 +37,7 @@ public class EmployeeRepositoryImpl extends BaseRepository implements  EmployeeR
     }
 
 
+
     @Override
     @Transactional
     public boolean DeleteEmployee(String id_employee) {
@@ -168,4 +169,18 @@ public class EmployeeRepositoryImpl extends BaseRepository implements  EmployeeR
         }
         return resultList;
     }
+
+    @Override
+    public List<EmployeeDto> getListEmployeeNotInDepartment() {
+        List<EmployeeDto> resultList = null;
+        try {
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_EMPLOYEE, "get_list_employee_not_in_department"));
+            resultList = getNamedParameterJdbcTemplate().query(builder.toString(), new BeanPropertyRowMapper<>(EmployeeDto.class));
+        } catch (Exception e){
+            logger.error(e.getMessage(), e);
+        }
+        return resultList;
+    }
+
+
 }

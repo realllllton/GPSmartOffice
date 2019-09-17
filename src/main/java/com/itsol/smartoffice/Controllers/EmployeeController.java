@@ -8,6 +8,7 @@ import com.itsol.smartoffice.dto.DepartmentDto;
 import com.itsol.smartoffice.dto.EmployeeDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class EmployeeController {
 
 
     @RequestMapping("/employee")
-    public ResponseEntity<List<EmployeeDto>> getdepartall(){
+    public ResponseEntity<List<EmployeeDto>> getdepartall() {
         List<EmployeeDto> employeeDtos = employeeService.getEmployeeall();
         return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
     }
@@ -36,7 +37,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/Addemployee")
-    public ResponseEntity<EmployeeDto> addDepartment(@RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> addDepartment(@RequestBody EmployeeDto employeeDto) {
         boolean result = employeeService.addEmployee(employeeDto);
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
     }
@@ -48,21 +49,28 @@ public class EmployeeController {
 //    }
 
     @RequestMapping("/getEmployee/{id}")
-    public ResponseEntity<EmployeeDto> getdepartbyid(@PathVariable String id){
+    public ResponseEntity<EmployeeDto> getdepartbyid(@PathVariable String id) {
         EmployeeDto departmentDtos = employeeService.getEmployeeById(id);
         return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
     }
 
     @PutMapping("/updateEmployee")
-    public ResponseEntity<EmployeeDto> update(@RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> update(@RequestBody EmployeeDto employeeDto) {
         employeeService.UpdateEmployee(employeeDto);
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
     }
 
     @PostMapping("/listEmployeeInDepartment")
-    public ResponseEntity<List<EmployeeDto>> getListEmployeeInDepartment(@RequestBody String id){
-        List<EmployeeDto> departmentDtos = employeeService.getListEmployeeInDepartment(id);
-        return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
+    public ResponseEntity<List<EmployeeDto>> getListEmployeeInDepartment(@RequestBody String id) {
+        List<EmployeeDto> employeeDtos = employeeService.getListEmployeeInDepartment(id);
+        return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
     }
+
+    @RequestMapping("/listEmployeeNotDepartment")
+    public ResponseEntity<List<EmployeeDto>> getListEmployeeInDepartment() {
+        List<EmployeeDto> employeeDtos = employeeService.getListEmployeeNotInDepartment();
+        return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
+    }
+
 
 }

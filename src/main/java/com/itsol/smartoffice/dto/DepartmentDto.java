@@ -14,4 +14,5 @@ public class DepartmentDto {
 
     private String id_department;
     private String name_department;
+    private String count_employee;
 }

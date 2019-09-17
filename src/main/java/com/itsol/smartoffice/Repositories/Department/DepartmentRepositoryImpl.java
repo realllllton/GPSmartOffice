@@ -120,4 +120,25 @@ public class DepartmentRepositoryImpl extends BaseRepository implements Departme
         return false;
     }
 
+    @Override
+    @Transactional
+    public List<DepartmentDto> GetCountListEmployeeInDepartment(String id_department) {
+        DepartmentDto departmentDto = new DepartmentDto();
+        List<DepartmentDto> resultList = null;
+        try {
+            Map<String, Object> parameters = new HashMap<>();
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_DEPARTMENT, "count_employee_in_department"));
+            if(DataUtil.isNotNullAndEmptyString(id_department)){
+                builder.append(" and d.id_department like :? GROUP BY d.id_department ");
+                parameters.put("?", DataUtil.removeWildcardCharacters(id_department));
+                logger.info(""+parameters);
+                logger.info("id truyen vao"+ id_department);
+            }
+            resultList = getNamedParameterJdbcTemplate().query(builder.toString(), parameters, new BeanPropertyRowMapper<>(DepartmentDto.class));
+        } catch (Exception e){
+            logger.error(e.getMessage(), e);
+        }
+        return resultList;
+    }
+
 }

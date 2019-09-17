@@ -2,6 +2,7 @@ package com.itsol.smartoffice.Repositories.Department;
 
 import com.itsol.smartoffice.Entity.DepartmentEntity;
 import com.itsol.smartoffice.dto.DepartmentDto;
+import com.itsol.smartoffice.dto.EmployeeDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface DepartmentRepository {
     DepartmentDto getDepartmentById(String id_department);
     boolean UpdateDepartment(DepartmentDto departmentDto);
 //    public List<?> getListEmployeeInDepartment(DepartmentDto departmentDto);
+    List<DepartmentDto> GetCountListEmployeeInDepartment(String id_department);
 }

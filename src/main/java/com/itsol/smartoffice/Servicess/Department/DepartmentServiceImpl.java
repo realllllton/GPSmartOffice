@@ -60,4 +60,10 @@ public class DepartmentServiceImpl implements DepartmentService {
         return true;
     }
 
+    @Override
+    public List<DepartmentDto> GetListCountEmployeeInDepartment(String id_department){
+        logger.info("get list count employee department by id: "+ id_department);
+        return departmentRepository.GetCountListEmployeeInDepartment(id_department);
+    }
+
 }
