@@ -1,11 +1,14 @@
 package com.itsol.smartoffice.Services.User;
 
 import com.itsol.smartoffice.Repositories.User.UserRepository;
+import com.itsol.smartoffice.dto.RoleDto;
 import com.itsol.smartoffice.dto.UsersDto;
+import com.itsol.smartoffice.dto.Users_roleDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +26,12 @@ public class UserServiceImpl implements UserService {
     public List<UsersDto> getlistuser() {
         logger.info("get list user");
         return userRepository.getlistuser();
+    }
+
+    @Override
+    public List<RoleDto> getrolebyusername(String user_name) {
+        logger.info("get list role by username");
+        return userRepository.getrolebyusername(user_name);
     }
 
     @Override

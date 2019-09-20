@@ -4,6 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * Create class model base
+ *
+ * project
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

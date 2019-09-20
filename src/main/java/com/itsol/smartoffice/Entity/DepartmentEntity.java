@@ -5,13 +5,17 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Create class model Entity base
+ *
+         * project
+         */
 @Entity
-@Table(name = "department")
+@Table(name = "departments")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 public class DepartmentEntity {
 
     @Id

@@ -13,12 +13,13 @@ public class SQLBuilder {
 
     private static Logger logger = LoggerFactory.getLogger(SQLBuilder.class);
 
-    public static final String SQL_MODUL_CAR = "car";
-    public static final String SQL_MODUL_INSURANCE = "insurance";
-    public static final String SQL_MODUL_DEPARTMENT = "department";
-    public static final String SQL_MODUL_PERMISSION = "permission";
+    public static final String SQL_MODUL_NEW = "new";
     public static final String SQL_MODUL_USERS = "user";
     public static final String SQL_MODUL_ROLE = "role";
+    public static final String SQL_MODUL_TIMESHEET = "timesheet";
+    public static final String SQL_MODUL_DEPARTMENT = "department";
+    public static final String SQL_MODUL_EMPLOYEE = "employee";
+    public static final String SQL_MODUL_PERMISSIONS = "permissions";
 
     public static String getSqlFromFile(String modul, String sqlFileName) {
         File folder;

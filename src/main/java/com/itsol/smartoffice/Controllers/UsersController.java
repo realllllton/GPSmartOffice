@@ -28,26 +28,26 @@ public class UsersController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping("/users/{user_name}")
+    @RequestMapping(value = "/users/{user_name}", method = RequestMethod.GET)
     public UsersDto getinfouser(@PathVariable String user_name) {
         return userService.getinfouser(user_name);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/users/usershowinfo")
+    @RequestMapping(value = "/users/usershowinfo", method = RequestMethod.POST)
     public UsersDto getinfobyusername(@RequestBody UsersDto usersDto) {
         return userService.getinfobyusername(usersDto);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/users/update")
+    @RequestMapping(value = "/users/update", method = RequestMethod.POST)
     public boolean edituser(@RequestBody UsersDto usersDto) {
         boolean result = userService.edituser(usersDto);
         return result;
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/users/delete")
+    @RequestMapping(value = "/users/delete", method = RequestMethod.POST)
     public boolean deleteuser(@RequestBody UsersDto usersDto) {
         boolean rerult = userService.deleteuser(usersDto);
         return rerult;

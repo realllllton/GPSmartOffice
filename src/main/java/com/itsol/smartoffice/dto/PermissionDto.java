@@ -5,6 +5,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Create class model base
+ *
+ * project
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

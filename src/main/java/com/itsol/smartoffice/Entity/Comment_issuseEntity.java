@@ -6,6 +6,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Create class model Entity base
+ *
+ * project
+ */
 @Entity
 @Table(name = "comment_issuse")
 @AllArgsConstructor

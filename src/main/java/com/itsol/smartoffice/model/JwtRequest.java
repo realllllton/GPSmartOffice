@@ -2,6 +2,11 @@ package com.itsol.smartoffice.model;
 
 import java.io.Serializable;
 
+/**
+ * Create class Request user from login
+ *
+ * @author thainguyen283
+ */
 public class JwtRequest implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;

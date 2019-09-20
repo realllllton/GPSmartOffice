@@ -7,6 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Create class model Entity base
+ *
+ * project
+ */
 @Entity
 @Table(name = "issuses")
 @AllArgsConstructor

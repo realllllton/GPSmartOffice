@@ -12,6 +12,11 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+/**
+ * Create controller upload file(images)
+ *
+ * @author thainguyen283
+ */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("")

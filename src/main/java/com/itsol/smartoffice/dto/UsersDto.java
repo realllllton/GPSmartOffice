@@ -2,6 +2,11 @@ package com.itsol.smartoffice.dto;
 
 import lombok.*;
 
+/**
+ * Create class model base
+ *
+ * project
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -19,6 +19,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Create reporitory role
+ *
+ * @author thainguyen283
+ */
 @Repository
 public class RoleRepositoryImpl extends BaseRepository implements RoleRepository {
     private Logger logger = LoggerFactory.getLogger(RoleRepositoryImpl.class);
@@ -59,7 +64,6 @@ public class RoleRepositoryImpl extends BaseRepository implements RoleRepository
     @Override
     @Transactional
     public boolean deleterolebyusername(String user_name) {
-        boolean result = false;
         try {
             Map<String, String> parameters = new HashMap<>();
             StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_ROLE, "delete_role_by_username"));
@@ -72,6 +76,6 @@ public class RoleRepositoryImpl extends BaseRepository implements RoleRepository
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
-        return result;
+        return false;
     }
 }

@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Create class controller login
+ *
+ * @author thainguyen283
+ */
 @RestController
 @CrossOrigin("*")
 public class JwtAuthenticationController {

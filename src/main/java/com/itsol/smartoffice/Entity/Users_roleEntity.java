@@ -4,6 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * Create class model Entity base
+ * <p>
+ * project
+ */
 @Entity
 @Table(name = "users_role")
 @AllArgsConstructor

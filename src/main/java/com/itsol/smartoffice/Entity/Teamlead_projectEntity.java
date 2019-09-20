@@ -5,6 +5,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Create class model Entity base
+ * <p>
+ * project
+ */
 @Entity
 @Table(name = "teamlead_project")
 @AllArgsConstructor

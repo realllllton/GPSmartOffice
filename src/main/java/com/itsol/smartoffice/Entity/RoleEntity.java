@@ -5,6 +5,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Create class model Entity base
+ * <p>
+ * project
+ */
 @Entity
 @Table(name = "role")
 @AllArgsConstructor

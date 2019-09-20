@@ -6,6 +6,11 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Create class model base
+ * <p>
+ * project
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

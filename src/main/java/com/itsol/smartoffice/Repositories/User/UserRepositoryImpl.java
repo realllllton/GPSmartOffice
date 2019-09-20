@@ -4,7 +4,7 @@ import com.itsol.smartoffice.Entity.UsersEntity;
 import com.itsol.smartoffice.Repositories.BaseRepository;
 import com.itsol.smartoffice.Utils.DataUtil;
 import com.itsol.smartoffice.Utils.SQLBuilder;
-import com.itsol.smartoffice.dto.CarDto;
+import com.itsol.smartoffice.dto.RoleDto;
 import com.itsol.smartoffice.dto.UsersDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,23 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
             logger.error(e.getMessage(), e);
         }
         return reultList;
+    }
+
+    @Override
+    public List<RoleDto> getrolebyusername(String user_name) {
+        List<RoleDto> rolelist = new ArrayList<>();
+        try {
+            Map<String, String> parameters = new HashMap<>();
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_USERS, "get_role_by_username"));
+            if (DataUtil.isNotNullAndEmptyString(user_name)) {
+                builder.append(" and users_role.user_name = :p_username ");
+                parameters.put("p_username", user_name);
+            }
+            rolelist = getNamedParameterJdbcTemplate().query(builder.toString(), parameters, new BeanPropertyRowMapper<>(RoleDto.class));
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        return rolelist;
     }
 
     @Override

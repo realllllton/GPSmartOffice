@@ -2,9 +2,13 @@ package com.itsol.smartoffice.dto;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Create class model base
+ *
+ * project
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -17,5 +21,6 @@ public class NewsDto {
     private String title;
     private Date date;
     private String brief;
+    private String detail;
     private String user_name;
 }

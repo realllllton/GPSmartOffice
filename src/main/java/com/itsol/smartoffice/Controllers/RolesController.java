@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Create controller roles for users
+ *
+ * @author thainguyen283
+ */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api")

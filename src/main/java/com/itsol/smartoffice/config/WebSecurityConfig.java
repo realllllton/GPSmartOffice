@@ -15,6 +15,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Create config websercurity
+ *
+ * @author thainguyen283
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -54,8 +59,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests()
-				.antMatchers("/authenticate", "/register", "/**", "/upload", "/files").permitAll()
-				.antMatchers("/api/**").hasAuthority("ADMIN")
+				.antMatchers("/authenticate", "/register", "/**", "/files/**", "/upload", "/files").permitAll()
+//				.antMatchers("/api/**").hasAuthority("ADMIN")
+				.antMatchers("/new/**").permitAll()
 				// all other requests need to be authenticated
 				.anyRequest().authenticated().and()
 				// make sure we use stateless session; session won't be used to
