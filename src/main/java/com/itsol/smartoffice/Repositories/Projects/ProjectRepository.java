@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ProjectRepository {
     List<ProjectsDto> getProjectall();
+    ProjectsDto getListProjectById(String IdProject);
     boolean AddProject(ProjectsDto projectsDto);
-    boolean DelProject(ProjectsDto projectsDto);
+    boolean DelProject(String Id_project);
+    boolean UpdateProject (ProjectsDto projectsDto);
 }

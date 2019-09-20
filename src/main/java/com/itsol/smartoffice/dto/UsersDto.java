@@ -17,4 +17,5 @@ public class UsersDto extends BaseDto {
     private boolean activated;
     private String tokenactive;
     private String email;
+    private boolean block;
 }

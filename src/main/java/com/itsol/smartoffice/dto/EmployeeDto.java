@@ -17,7 +17,7 @@ public class EmployeeDto {
     private String full_name;
     private String images;
     private String email;
-    private int phone;
+    private String phone;
     private String nick_skype;
     private String facebook_link;
     private String object;

@@ -69,6 +69,7 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
             usersDto.setTokenactive(randomString(7));
             usersEntity.setPass_word(usersDto.getPass_word());
             usersEntity.setTokenactive(usersDto.getTokenactive());
+            usersEntity.setBlock(usersDto.isBlock());
             entityManager.merge(usersEntity);
             return true;
         } catch (Exception e) {

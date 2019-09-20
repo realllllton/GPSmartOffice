@@ -22,6 +22,7 @@ public class UsersEntity {
     private String tokenactive;
     private String images;
     private String email;
+    private boolean block;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
     private List<IssuseEntity> issuseEntities;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)

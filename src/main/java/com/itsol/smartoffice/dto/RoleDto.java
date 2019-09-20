@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @ToString
 public class RoleDto {
-
     private int id_role;
     private String name_role;
 }

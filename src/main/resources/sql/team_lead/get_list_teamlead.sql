@@ -1,0 +1,1 @@
+select * from team_lead where 1=1

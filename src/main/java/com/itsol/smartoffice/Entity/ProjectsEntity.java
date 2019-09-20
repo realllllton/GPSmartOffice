@@ -14,7 +14,6 @@ import java.util.List;
 @Getter
 @ToString
 public class ProjectsEntity {
-
     @Id
     private String id_project;
     private String name_project;

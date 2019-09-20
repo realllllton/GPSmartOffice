@@ -1,1 +1,1 @@
-select * from projects
+select * from projects where 1 = 1

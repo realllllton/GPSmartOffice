@@ -23,8 +23,26 @@ public class ProjectServicesImpl implements ProjectServices {
     }
 
     @Override
+    public ProjectsDto getListProjectById(String IdProject) {
+        logger.info("Call ProjectServices getListProjectById");
+        return projectRepository.getListProjectById(IdProject);
+    }
+
+    @Override
     public boolean AddProject(ProjectsDto projectsDto) {
         logger.info("Call ProjectServices AddProject");
         return projectRepository.AddProject(projectsDto);
+    }
+
+    @Override
+    public boolean DelProject(String Id_project) {
+        logger.info("Call ProjectServices DeleteProject");
+        return projectRepository.DelProject(Id_project);
+    }
+
+    @Override
+    public boolean UpdateProject(ProjectsDto projectsDto) {
+        logger.info("Call ProjectServices UpdateProject");
+        return projectRepository.UpdateProject(projectsDto);
     }
 }

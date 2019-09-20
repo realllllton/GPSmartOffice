@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @ToString
 public class ProjectsDto {
-
     private String id_project;
     private String name_project;
     private Date start_time;

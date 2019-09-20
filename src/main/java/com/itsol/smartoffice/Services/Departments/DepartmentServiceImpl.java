@@ -21,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<DepartmentDto> getdepartall() {
-        logger.info("get list all departments");
+        logger.info("get list all department");
         return departmentRepository.getdepartall();
     }
 }

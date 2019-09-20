@@ -44,6 +44,7 @@ public class RegisterController {
         UsersDto usersDto = userServices.getUserByUserName(username);
         if (usersDto.getTokenactive().equals(token)) {
             usersDto.setActivated(true);
+            usersDto.setBlock(true);
             userServices.update(usersDto);
 
             Users_roleDto users_roleDto = new Users_roleDto();
