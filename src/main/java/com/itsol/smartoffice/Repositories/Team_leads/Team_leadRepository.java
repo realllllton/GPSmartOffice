@@ -10,4 +10,7 @@ public interface Team_leadRepository {
     List<Team_leadDto> getTeamleadall();
     List<Team_leadDto> getTeamleadByIdproject(String IdProject);
     List<EmployeeDto> getEmployeebyIdteam(String IdTeam);
+    boolean AddTeamLead(Team_leadDto team_leadDto);
+    boolean UpdateTeamLead(Team_leadDto team_leadDto);
+    boolean DeleteTeamLead(String id_team);
 }

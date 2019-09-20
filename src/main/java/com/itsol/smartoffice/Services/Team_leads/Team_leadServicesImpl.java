@@ -34,4 +34,22 @@ public class Team_leadServicesImpl implements Team_leadServices {
     public List<EmployeeDto> getEmployeebyIdteam(String IdTeam) {
         return team_leadRepository.getEmployeebyIdteam(IdTeam);
     }
+
+    @Override
+    public boolean AddTeamLead(Team_leadDto team_leadDto) {
+        logger.info("Call AddTeamLeadServices");
+        return team_leadRepository.AddTeamLead(team_leadDto);
+    }
+    @Override
+    public boolean UpdateTeamLead(Team_leadDto team_leadDto) {
+        logger.info("Call UpdateTeam");
+        return team_leadRepository.UpdateTeamLead(team_leadDto);
+    }
+
+    @Override
+    public boolean DeleteTeamLead(String id_team) {
+        logger.info("Call deleteTeam");
+        return team_leadRepository.DeleteTeamLead(id_team);
+    }
+
 }

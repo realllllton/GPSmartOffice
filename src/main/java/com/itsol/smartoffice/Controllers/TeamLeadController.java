@@ -38,5 +38,20 @@ public class TeamLeadController {
         List<EmployeeDto> employeeDtos = team_leadServices.getEmployeebyIdteam(idteam);
         return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
     }
+    @PostMapping("/addteamlead")
+    public ResponseEntity<Team_leadDto> addTeamlead(@RequestBody Team_leadDto team_leadDto){
+        boolean teamlead = team_leadServices.AddTeamLead(team_leadDto);
+        return new ResponseEntity<>(team_leadDto, HttpStatus.OK);
+    }
+    @PutMapping("/updateteamlead")
+    public ResponseEntity<Team_leadDto> updateTeamlead(@RequestBody Team_leadDto team_leadDto){
+        boolean teamlead = team_leadServices.UpdateTeamLead(team_leadDto);
+        return new ResponseEntity<>(team_leadDto, HttpStatus.OK);
+    }
+    @DeleteMapping("/deleteteamlead/{id_team}")
+    public ResponseEntity<Team_leadDto> delteTeamlead(@PathVariable String id_team){
+        boolean teamlead = team_leadServices.DeleteTeamLead(id_team);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
