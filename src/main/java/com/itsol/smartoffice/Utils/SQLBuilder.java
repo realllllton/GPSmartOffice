@@ -17,6 +17,7 @@ public class SQLBuilder {
     public static final String SQL_MODUL_INSURANCE = "insurance";
     public static final String SQL_MODUL_DEPARTMENT = "department";
     public static final String SQL_MODUL_EMPLOYEE = "employee";
+    public static final String SQL_MODUL_PERMISSIONS = "permissions";
 
     public static String getSqlFromFile(String modul, String sqlFileName) {
         File folder;

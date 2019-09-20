@@ -11,9 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 public class PermissionEntity {
-
     @Id
     private String user_name;
     private Date date;

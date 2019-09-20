@@ -46,8 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public Boolean UpdateEmployee(EmployeeDto employeeDto) {
         logger.info(""+employeeDto);
-        employeeRepository.UpdateEmployee(employeeDto);
-        return true;
+        return employeeRepository.UpdateEmployee(employeeDto);
     }
 
     @Override
