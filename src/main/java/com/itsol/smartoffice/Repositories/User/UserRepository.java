@@ -18,4 +18,13 @@ public interface UserRepository {
     boolean edituser(UsersDto usersDto);
 
     boolean deleteuser(String user_name);
+
+    //    dung
+    boolean register(UsersDto usersDto);
+
+    boolean update(UsersDto usersDto);
+
+    UsersDto getUserByUserName(String username);
+
+    UsersDto getUserByEmail(String email);
 }

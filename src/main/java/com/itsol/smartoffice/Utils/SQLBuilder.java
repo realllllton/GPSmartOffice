@@ -16,6 +16,8 @@ public class SQLBuilder {
     public static final String SQL_MODUL_NEW = "new";
     public static final String SQL_MODUL_USERS = "user";
     public static final String SQL_MODUL_ROLE = "role";
+    public static final String SQL_MODUL_PROJECT = "project";
+    public static final String SQL_MODUL_LEAD_TEAM = "team_lead";
     public static final String SQL_MODUL_TIMESHEET = "timesheet";
     public static final String SQL_MODUL_DEPARTMENT = "department";
     public static final String SQL_MODUL_EMPLOYEE = "employee";

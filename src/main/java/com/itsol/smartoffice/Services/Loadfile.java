@@ -14,6 +14,8 @@ import java.nio.file.Paths;
 
 @Service
 public class Loadfile {
+
+    Logger logger = LoggerFactory.getLogger(Loadfile.class);
     private final Path imguser = Paths.get("./Uploads");
 
     public Resource loadFile(String filename, Path path) {
@@ -23,11 +25,12 @@ public class Loadfile {
             if (resource.exists() || resource.isReadable()) {
                 return resource;
             } else {
-                throw new RuntimeException("FAIL!");
+                logger.error("FAIL!");
             }
         } catch (MalformedURLException e) {
-            throw new RuntimeException("FAIL!");
+            logger.error("FAIL!");
         }
+        return null;
     }
 
     public Resource loadimguser(String nameFile) {

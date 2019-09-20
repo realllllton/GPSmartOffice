@@ -24,4 +24,5 @@ public class UsersDto extends BaseDto {
     private boolean activated;
     private int id_role;
     private String name_role;
+    private String tokenactive;
 }

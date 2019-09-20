@@ -29,6 +29,7 @@ public class UsersEntity implements Serializable {
     private String email;
     private boolean block;
     private boolean activated;
+    private String tokenactive;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)
     private List<IssuseEntity> issuseEntities;
     @OneToMany(mappedBy = "usersEntity", fetch = FetchType.LAZY)

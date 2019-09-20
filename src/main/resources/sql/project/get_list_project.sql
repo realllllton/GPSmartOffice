@@ -1,0 +1,1 @@
+select * from projects where 1 = 1

@@ -17,4 +17,11 @@ public interface UserService {
     boolean edituser(UsersDto usersDto);
 
     boolean deleteuser(UsersDto usersDto);
+
+    //    dung
+    boolean register(UsersDto usersDto);
+
+    boolean update(UsersDto usersDto);
+
+    UsersDto getUserByUserName(String username);
 }

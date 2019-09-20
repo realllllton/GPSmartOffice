@@ -13,4 +13,5 @@ import lombok.Setter;
 @Getter
 public class BaseDto {
     private String resultStatus;
+    private String finderror;
 }

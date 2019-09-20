@@ -67,6 +67,17 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--email-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>1.5.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.icegreen</groupId>
+            <artifactId>greenmail</artifactId>
+            <version>1.5.5</version>
+        </dependency>
         <!-- Dependency for jwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
