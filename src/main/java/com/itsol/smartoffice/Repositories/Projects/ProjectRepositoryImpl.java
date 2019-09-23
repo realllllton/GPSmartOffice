@@ -46,7 +46,7 @@ public class ProjectRepositoryImpl extends BaseRepository implements ProjectRepo
             projectsDto = getNamedParameterJdbcTemplate().queryForObject(builder.toString(), parameters, new BeanPropertyRowMapper<>(ProjectsDto.class));
         } catch (Exception e) {
             logger.info("Không tìm thấy project can tim");
-        };
+        }
         return projectsDto;
     }
 

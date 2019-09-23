@@ -25,6 +25,12 @@ public class Team_leadServicesImpl implements Team_leadServices {
     }
 
     @Override
+    public Team_leadDto getTeamleadbyIdteamlead(String IdTeam) {
+        logger.info("Call getTeamleadbyIdTeamlead");
+        return team_leadRepository.getTeamleadbyIdteamlead(IdTeam);
+    }
+
+    @Override
     public List<Team_leadDto> getTeamleadByIdproject(String IdProject) {
         logger.info("Call Team_leadServces getTeamleadbyProjectID");
         return team_leadRepository.getTeamleadByIdproject(IdProject);
@@ -36,9 +42,28 @@ public class Team_leadServicesImpl implements Team_leadServices {
     }
 
     @Override
+    public List<EmployeeDto> getEmployeebyIdteamisnull() {
+        logger.info("Call getEmployeebtIdteamisnull");
+        return team_leadRepository.getEmployeebyIdteamisnull();
+    }
+
+    @Override
+    public List<Team_leadDto> getTeamleadByidprojectnull() {
+        logger.info("Call getTeamleadbyIdprojectnull");
+        return team_leadRepository.getTeamleadByidprojectnull();
+    }
+
+    @Override
     public boolean AddTeamLead(Team_leadDto team_leadDto) {
-        logger.info("Call AddTeamLeadServices");
-        return team_leadRepository.AddTeamLead(team_leadDto);
+        if(team_leadRepository.getTeamleadbyIdteamlead(team_leadDto.getId_team()).getId_team()== null){
+            logger.info("Call AddTeamLeadServices");
+            team_leadDto.setFinderror("OK");
+            return team_leadRepository.AddTeamLead(team_leadDto);
+        }else {
+            logger.error("trung id");
+            team_leadDto.setFinderror("NOK");
+        }
+        return false;
     }
     @Override
     public boolean UpdateTeamLead(Team_leadDto team_leadDto) {

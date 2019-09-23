@@ -14,4 +14,5 @@ public interface EmployeeRepository {
     boolean UpdateEmployee(EmployeeDto employeeDto);
     List<EmployeeDto> getListEmployeeInDepartment(String id);
     public List<EmployeeDto> getListEmployeeNotInDepartment();
+    List<EmployeeDto> Search(EmployeeDto employeeDto);
 }

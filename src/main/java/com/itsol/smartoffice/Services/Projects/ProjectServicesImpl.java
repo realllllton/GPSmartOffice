@@ -30,8 +30,15 @@ public class ProjectServicesImpl implements ProjectServices {
 
     @Override
     public boolean AddProject(ProjectsDto projectsDto) {
-        logger.info("Call ProjectServices AddProject");
-        return projectRepository.AddProject(projectsDto);
+        if(projectRepository.getListProjectById(projectsDto.getId_project()).getId_project()== null){
+            logger.info("Call ProjectServices AddProject");
+            projectsDto.setFinderror("OK");
+            return projectRepository.AddProject(projectsDto);
+        }else {
+            logger.error("Trung Id project");
+            projectsDto.setFinderror("NOK");
+        }
+       return false;
     }
 
     @Override

@@ -181,4 +181,28 @@ public class EmployeeRepositoryImpl extends BaseRepository implements  EmployeeR
     }
 
 
+    @Override
+    @Transactional
+    public List<EmployeeDto> Search(EmployeeDto employeeDto){
+        logger.info("ob qua ripo"+ employeeDto.getFull_name());
+        List<EmployeeDto> resultList = null;
+        try{
+            Map<String, Object> parameters = new HashMap<>();
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_EMPLOYEE, "get_list_employee"));
+            if(DataUtil.isNotNullAndEmptyString(employeeDto.getId_employee())){
+                builder.append(" and e.id_employee like :e.id_employee ");
+                parameters.put("e.id_employee", DataUtil.removeWildcardCharacters(employeeDto.getId_employee()));
+                logger.info(""+parameters);
+            }
+            if(DataUtil.isNotNullAndEmptyString(employeeDto.getFull_name())){
+                builder.append(" and e.full_name like :e.full_name ");
+                parameters.put("e.full_name", DataUtil.removeWildcardCharacters(employeeDto.getFull_name()));
+            }
+            resultList = getNamedParameterJdbcTemplate().query(builder.toString(), parameters, new BeanPropertyRowMapper<>(EmployeeDto.class));
+        }catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+
+        return resultList;
+    }
 }

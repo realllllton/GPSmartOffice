@@ -1,6 +1,7 @@
 package com.itsol.smartoffice.Services.User;
 
 import com.itsol.smartoffice.Repositories.User.UserRepository;
+import com.itsol.smartoffice.dto.BaseDto;
 import com.itsol.smartoffice.dto.RoleDto;
 import com.itsol.smartoffice.dto.UsersDto;
 import com.itsol.smartoffice.dto.Users_roleDto;
@@ -56,6 +57,12 @@ public class UserServiceImpl implements UserService {
     public boolean deleteuser(UsersDto usersDto) {
         logger.info("delete user");
         return userRepository.deleteuser(usersDto.getUser_name());
+    }
+
+    @Override
+    public BaseDto getquantity() {
+        logger.info("getquantity user blocked");
+        return userRepository.getquantity();
     }
 
     //    dung

@@ -26,8 +26,8 @@ public class PermissionsController {
 
     @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
     @PostMapping("/permissionsById")
-    public ResponseEntity<PermissionDto> getPermissionById(@RequestBody String user_name){
-        PermissionDto permissionDtos = permissionsService.getPermissionById(user_name);
+    public ResponseEntity<PermissionDto> getPermissionById(@RequestBody PermissionDto permissionDto){
+        PermissionDto permissionDtos = permissionsService.getPermissionById(permissionDto);
         return new ResponseEntity<>(permissionDtos, HttpStatus.OK);
     }
 

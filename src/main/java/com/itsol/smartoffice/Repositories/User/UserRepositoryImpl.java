@@ -4,11 +4,14 @@ import com.itsol.smartoffice.Entity.UsersEntity;
 import com.itsol.smartoffice.Repositories.BaseRepository;
 import com.itsol.smartoffice.Utils.DataUtil;
 import com.itsol.smartoffice.Utils.SQLBuilder;
+import com.itsol.smartoffice.dto.BaseDto;
 import com.itsol.smartoffice.dto.RoleDto;
 import com.itsol.smartoffice.dto.UsersDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -117,6 +120,20 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
         return false;
     }
 
+    @Override
+    public BaseDto getquantity() {
+        BaseDto result = null;
+        try {
+            Map<String, String> parameters = new HashMap<>();
+            StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_USERS, "get_quantity"));
+            builder.append(" where users.block = 1 ");
+            result = getNamedParameterJdbcTemplate().queryForObject(builder.toString(), parameters, new BeanPropertyRowMapper<>(BaseDto.class));
+        }catch (Exception e){
+            logger.error(e.getMessage(), e);
+        }
+        return result;
+    }
+
     //    dung
     static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     static Random rnd = new Random();
@@ -162,8 +179,6 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
             usersEntity.setLast_name(usersDto.getLast_name());
             usersEntity.setEmail(usersDto.getEmail());
             usersEntity.setActivated(usersDto.isActivated());
-            //usersDto.setPass_word(randomString(8));
-            //usersDto.setTokenactive(randomString(7));
             usersEntity.setPass_word(usersDto.getPass_word());
             usersEntity.setTokenactive(usersDto.getTokenactive());
             usersEntity.setBlock(usersDto.isBlock());
