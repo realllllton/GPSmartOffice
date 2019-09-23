@@ -7,8 +7,11 @@ import java.util.List;
 
 public interface Team_leadServices {
     List<Team_leadDto> getTeamleadall();
+    Team_leadDto getTeamleadbyIdteamlead(String IdTeam);
     List<Team_leadDto> getTeamleadByIdproject(String IdProject);
     List<EmployeeDto> getEmployeebyIdteam(String IdTeam);
+    List<EmployeeDto> getEmployeebyIdteamisnull();
+    List<Team_leadDto> getTeamleadByidprojectnull();
     boolean AddTeamLead(Team_leadDto team_leadDto);
     boolean UpdateTeamLead(Team_leadDto team_leadDto);
     boolean DeleteTeamLead(String id_team);

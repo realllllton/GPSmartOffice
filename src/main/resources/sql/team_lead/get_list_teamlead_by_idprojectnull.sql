@@ -1,0 +1,1 @@
+select * from team_lead where id_project IS NULL
