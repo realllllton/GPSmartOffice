@@ -1,1 +1,1 @@
-select * from team_lead INNER JOIN teamlead_project on team_lead.id_team = teamlead_project.id_team
+select * from team_lead where 1=1

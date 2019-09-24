@@ -117,6 +117,7 @@ public class TimesheetRepositoryImpl extends BaseRepository implements Timesheet
             TimesheetEntity timesheetEntity = new TimesheetEntity();
             timesheetEntity.setUser_name(timesheetDto.getUser_name());
             timesheetEntity.setTask(timesheetDto.getTask());
+            timesheetEntity.setResult(timesheetDto.getResult());
             timesheetEntity.setDatetime(timesheetDto.getDatetime());
             timesheetEntity.setNotes(timesheetDto.getNotes());
             timesheetEntity.setStatus(timesheetDto.getStatus());
