@@ -66,35 +66,7 @@ public class DepartmentController {
         departmentService.UpdateDepartment(departmentDto);
         return new ResponseEntity<>(departmentDto, HttpStatus.OK);
     }
-
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
-    @RequestMapping(value = "/upload2", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public String uploadData(@RequestParam("file") MultipartFile file) {
-        String filename = "";
-        if (file == null) {
-            throw new RuntimeException("You must select the a file for uploading");
-        }
-        try {
-            filename = file.getOriginalFilename();
-            byte[] bytes = file.getBytes();
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(this.getFolderUpload(), filename)));
-            bufferedOutputStream.write(bytes);
-            bufferedOutputStream.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "file da nhan" + file.getOriginalFilename();
-    }
-
-    public File getFolderUpload() {
-        File folderUpload = new File(System.getProperty("user.dir") + "/Uploads");
-        if (!folderUpload.exists()) {
-            folderUpload.mkdirs();
-        }
-        return folderUpload;
-    }
+    
 
     @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
     @PostMapping("/listCountEmployeInDepartment")

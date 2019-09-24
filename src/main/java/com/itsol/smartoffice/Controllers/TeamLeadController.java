@@ -31,6 +31,13 @@ public class TeamLeadController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @GetMapping("/teamleadbyidteam/{idteam}")
+    public ResponseEntity<Team_leadDto> getTeamleadbyidteam(@PathVariable String idteam) {
+        Team_leadDto team_leadDto = team_leadServices.getTeamleadbyIdteamlead(idteam);
+        return new ResponseEntity<>(team_leadDto, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
     @GetMapping("/teamleadbyidproject/{idproject}")
     public ResponseEntity<List<Team_leadDto>> getTeamleadbyidproject(@PathVariable String idproject) {
         List<Team_leadDto> team_leadDtos = team_leadServices.getTeamleadByIdproject(idproject);
@@ -45,12 +52,23 @@ public class TeamLeadController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @GetMapping("/employeebyidteamleadisnull")
+    public ResponseEntity<List<EmployeeDto>> getEmployeebyidteamnull() {
+        List<EmployeeDto> employeeDtos = team_leadServices.getEmployeebyIdteamisnull();
+        return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
+    }
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @GetMapping("/teamleadbyidprojectisnull")
+    public  ResponseEntity<List<Team_leadDto>> getTeamleadbyidprojectnull(){
+        List<Team_leadDto> team_leadDtos = team_leadServices.getTeamleadByidprojectnull();
+        return new ResponseEntity<>(team_leadDtos,HttpStatus.OK);
+    }
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
     @PostMapping("/addteamlead")
     public ResponseEntity<Team_leadDto> addTeamlead(@RequestBody Team_leadDto team_leadDto) {
         boolean teamlead = team_leadServices.AddTeamLead(team_leadDto);
         return new ResponseEntity<>(team_leadDto, HttpStatus.OK);
     }
-
     @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
     @PutMapping("/updateteamlead")
     public ResponseEntity<Team_leadDto> updateTeamlead(@RequestBody Team_leadDto team_leadDto) {

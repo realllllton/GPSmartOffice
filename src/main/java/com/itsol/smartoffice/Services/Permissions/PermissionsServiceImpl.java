@@ -28,9 +28,9 @@ public class PermissionsServiceImpl implements PermissionsService{
        return permissionsRepository.UpdatePermissions(permissionDto);
     }
     @Override
-    public PermissionDto getPermissionById(String user_name) {
-        logger.info("get list all Permissions by"+ user_name);
-        return permissionsRepository.getPermissionById(user_name);
+    public PermissionDto getPermissionById(PermissionDto permissionDto) {
+        logger.info("get list all Permissions by"+ permissionDto);
+        return permissionsRepository.getPermissionById(permissionDto);
     }
     @Override
     public List<PermissionDto> getListPermissionAOneUser(String user_name){

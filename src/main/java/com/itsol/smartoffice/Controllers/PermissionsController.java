@@ -17,34 +17,34 @@ public class PermissionsController {
     @Autowired
     private PermissionsService permissionsService;
 
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @RequestMapping("/permissions")
     public ResponseEntity<List<PermissionDto>> getdepartall(){
         List<PermissionDto> permissionDtos = permissionsService.getPermissionAll();
         return new ResponseEntity<>(permissionDtos, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @PostMapping("/permissionsById")
-    public ResponseEntity<PermissionDto> getPermissionById(@RequestBody String user_name){
-        PermissionDto permissionDtos = permissionsService.getPermissionById(user_name);
+    public ResponseEntity<PermissionDto> getPermissionById(@RequestBody PermissionDto permissionDto){
+        PermissionDto permissionDtos = permissionsService.getPermissionById(permissionDto);
         return new ResponseEntity<>(permissionDtos, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @PutMapping("/updatePermissions")
     public boolean update(@RequestBody PermissionDto permissionDto) {
         return permissionsService.UpdateEmployee(permissionDto);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @PostMapping("/permissionsOneUser")
     public ResponseEntity<List<PermissionDto>> getListPermissionAOneUser(@RequestBody String user_name){
         List<PermissionDto> permissionDtos = permissionsService.getListPermissionAOneUser(user_name);
         return new ResponseEntity<>(permissionDtos, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @PostMapping("/addPermissionsOfUser")
     public boolean add(@RequestBody PermissionDto permissionDto){
         return permissionsService.addPermissionsOfUser(permissionDto);

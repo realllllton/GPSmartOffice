@@ -26,5 +26,5 @@ public class ProjectsEntity {
     private Date start_time;
     private Date end_time;
     @OneToMany(mappedBy = "projectsEntity", fetch = FetchType.LAZY)
-    private List<Teamlead_projectEntity> teamlead_projectEntities;
+    private List<Team_leadEntity> team_leadEntities;
 }

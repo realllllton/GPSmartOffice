@@ -1,5 +1,6 @@
 package com.itsol.smartoffice.Repositories.User;
 
+import com.itsol.smartoffice.dto.BaseDto;
 import com.itsol.smartoffice.dto.RoleDto;
 import com.itsol.smartoffice.dto.UsersDto;
 import com.itsol.smartoffice.dto.Users_roleDto;
@@ -18,6 +19,8 @@ public interface UserRepository {
     boolean edituser(UsersDto usersDto);
 
     boolean deleteuser(String user_name);
+
+    BaseDto getquantity();
 
     //    dung
     boolean register(UsersDto usersDto);

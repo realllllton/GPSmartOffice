@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class ProjectsDto {
+public class ProjectsDto extends BaseDto {
 
     private String id_project;
     private String name_project;

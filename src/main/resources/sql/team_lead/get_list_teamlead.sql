@@ -1,1 +1,1 @@
-select * from team_lead where 1=1
+select team_lead.id_team,team_lead.name_team, COUNT(employee.id_team) AS quantity, team_lead.id_project from team_lead left JOIN employee on team_lead.id_team = employee.id_team GROUP BY team_lead.id_team

@@ -10,7 +10,7 @@ public interface PermissionsRepository {
 
     boolean UpdatePermissions(PermissionDto permissionDto);
 
-    PermissionDto getPermissionById(String user_name);
+    PermissionDto getPermissionById(PermissionDto permissionDto);
 
     List<PermissionDto> getListPermissionAOneUser(String user_name);
 

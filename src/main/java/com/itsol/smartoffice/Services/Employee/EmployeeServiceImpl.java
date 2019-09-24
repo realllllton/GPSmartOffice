@@ -61,5 +61,9 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.getListEmployeeNotInDepartment();
     }
 
-
+    @Override
+    public List<EmployeeDto> Search(EmployeeDto employeeDto) {
+        logger.info("Search employee");
+        return employeeRepository.Search(employeeDto);
+    }
 }

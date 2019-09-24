@@ -67,5 +67,11 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')")
+    @PostMapping("/SearchEmployee")
+    public ResponseEntity<List<EmployeeDto>> SearchEmployee(@RequestBody EmployeeDto employeeDto) {
+        List<EmployeeDto> employeeDtos = employeeService.Search(employeeDto);
+        return new ResponseEntity<>(employeeDtos, HttpStatus.OK);
+    }
 
 }

@@ -14,4 +14,5 @@ public interface EmployeeService {
     Boolean UpdateEmployee(EmployeeDto employeeDto);
     List<EmployeeDto> getListEmployeeInDepartment(String id);
     List<EmployeeDto> getListEmployeeNotInDepartment();
+    List<EmployeeDto> Search(EmployeeDto employeeDto);
 }

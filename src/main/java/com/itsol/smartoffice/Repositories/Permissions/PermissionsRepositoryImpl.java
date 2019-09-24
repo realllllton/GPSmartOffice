@@ -35,15 +35,17 @@ public class PermissionsRepositoryImpl extends BaseRepository implements  Permis
    }
 
    @Override
-   public PermissionDto getPermissionById(String user_name){
-      PermissionDto permissionDto = new PermissionDto();
-      EntityManager entityManager = getEntityManager();
-      PermissionEntity permissionEntity = entityManager.find(PermissionEntity.class, user_name);
-      permissionDto.setUser_name(permissionEntity.getUser_name());
-      permissionDto.setDate(permissionEntity.getDate());
-      permissionDto.setActivated(permissionEntity.isActivated());
-      permissionDto.setReason(permissionEntity.getReason());
-      permissionDto.setStatus(permissionEntity.getStatus());
+   public PermissionDto getPermissionById(PermissionDto permissionDto){
+      try {
+         Map<String, Object> parameters = new HashMap<>();
+         StringBuilder builder = new StringBuilder(SQLBuilder.getSqlFromFile(SQLBuilder.SQL_MODUL_PERMISSIONS, "get_list_permissions_one_user"));
+         builder.append(" and p.user_name like :1 and p.date like :2 ");
+         parameters.put("1", permissionDto.getUser_name());
+         parameters.put("2", permissionDto.getDate());
+         getNamedParameterJdbcTemplate().query(builder.toString(), parameters, new BeanPropertyRowMapper<>(PermissionDto.class));
+      } catch (Exception e){
+         logger.error(e.getMessage(), e);
+      }
       return permissionDto;
    }
 

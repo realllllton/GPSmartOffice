@@ -23,7 +23,7 @@ public class RolesController {
     @Autowired
     private RoleService roleService;
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')||hasAuthority('MANAGER')||hasAuthority('LEADER')||hasAuthority('MEMBER')")
     @RequestMapping(value = "/role/getlistbyuser/{user_name}", method = RequestMethod.GET)
     public List<RoleDto> getlistrolebyuser(@PathVariable String user_name) {
         return roleService.getlistrolebyusername(user_name);
